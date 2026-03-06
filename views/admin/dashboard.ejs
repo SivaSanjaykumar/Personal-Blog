@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h1>Admin Dashboard</h1>
+
+    <a href="/">View Blog</a>
+    <a href="/admin/add">Add Article</a>
+
+    <hr>
+
+    <% if (articles.length> 0) { %>
+
+        <% articles.forEach(article=> { %>
+
+            <div>
+
+                <h3>
+                    <a href="/article/<%= article.filename %>">
+                        <%= article.title %>
+                    </a>
+                </h3>
+
+                <p><small>
+                        <%= article.date %>
+                    </small></p>
+
+                <a href="/admin/edit/<%= article.filename %>">
+                    Edit
+                </a>
+                <form action="/admin/delete/<%= article.filename %>" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+
+
+            </div>
+
+            <hr>
+
+            <% }) %>
+
+                <% } else { %>
+
+                    <p>No articles available.</p>
+
+                    <% } %>
+
+</body>
+
+</html>

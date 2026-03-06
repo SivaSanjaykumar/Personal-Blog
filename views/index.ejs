@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title><%= title %></title>
+<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<h1>My Personal Blog</h1>
+
+<a href="/admin/dashboard">Admin Dashboard</a>
+<a href="/admin/add">Write New Article</a>
+
+<hr>
+
+<% if (articles.length > 0) { %>
+
+    <% articles.forEach(article => { %>
+
+        <div class="article">
+
+            <h2>
+                <a href="/article/<%= article.filename %>">
+                    <%= article.title %>
+                </a>
+            </h2>
+
+            <p><small><%= article.date %></small></p>
+
+            <p>
+                <%= article.content.substring(0,150) %>...
+            </p>
+
+            <a href="/article/<%= article.filename %>">
+                Read More →
+            </a>
+
+        </div>
+
+        <hr>
+
+    <% }) %>
+
+<% } else { %>
+
+<p>No articles published yet.</p>
+
+<% } %>
+
+</body>
+</html>

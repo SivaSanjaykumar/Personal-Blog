@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title><%= title %></title>
+<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<h1>Add New Article</h1>
+
+<form action="/admin/add" method="POST">
+
+<label>Title</label><br>
+<input type="text" name="title" required>
+
+<br><br>
+
+<label>Date</label><br>
+<input type="date" name="date" required>
+
+<br><br>
+
+<label>Content</label><br>
+<textarea name="content" rows="10" cols="60" required></textarea>
+
+<br><br>
+
+<button type="submit">Publish</button>
+
+</form>
+
+<br>
+
+<a href="/admin/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
